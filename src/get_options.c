@@ -2,14 +2,20 @@
 
 inline static int	print_usage(void)
 {
-	ft_putstr("usage: ./ft_ls ***\n");
+	ft_putstr("usage: ./ft_ls [-GRadfrt] path1 [path2 ...]\n");
+	ft_pustr("Flags:\n");
+	ft_putstr("\t-G - Enable colour output\n");
+	ft_putstr("\t-R - Recursively list subdirectories encountered\n");
+	ft_putstr("\t-a - List all entries including those starting with a dot\n");
+	ft_putstr("\t-d - Directories are listed as plain files\n");
+	ft_putstr("\t-f - Output is not sorted\n");
+	ft_putstr("\t-r - Reverse the order of the sort\n");
+	ft_putstr("\t-t - Sort by time modified (most recently modified first)\n");
 	return (FTLS_USAGE);
 }
 
 inline static int	process_option(t_ft_ls *ls, char flag)
 {
-	if (flag == 'h')
-		return (print_usage());
 	if (flag == 'l')
 		ls->options |= FTLS_OPT_L_LONG_FORMAT;
 	else if (flag == 'R')
